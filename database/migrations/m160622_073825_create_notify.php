@@ -22,8 +22,8 @@ class m160622_073825_create_notify extends Migration
             'id' => $this->primaryKey(),
             'from_uid' => $this->integer(11)->notNull(),
             'to_uid' => $this->integer(11)->notNull(),
-            'category_id' => $this->integer(11)->comment('通知分类ID'),
-            'extra' => $this->text()->comment('附加信息'),
+            'category_id' => $this->integer(11)->comment('category id'),
+            'extra' => $this->text()->comment('extra'),
             'created_at' => $this->integer(10)->notNull(),
             'read' => $this->boolean()->notNull()->defaultValue(0),
             'link' => $this->string(255)
@@ -39,14 +39,14 @@ class m160622_073825_create_notify extends Migration
             'content' => $this->string(255),
         ], $tableOptions);
         $this->batchInsert('{{%notify_category}}', ['name', 'title', 'content'], [
-            ['reply', '{from.username} 回复了你的评论', '{extra.comment}'],
-            ['suggest', '{from.username} 给你留言了', '{extra.comment}'],
-            ['comment', '{from.username} 评论了你的文章 {extra.article_title}', '{extra.comment}'],
-            ['favourite', '{from.username} 收藏了你的文章 {extra.article_title}', null],
-            ['up_article', '{from.username} 赞了你的文章 {extra.article_title}', null],
-            ['message', '{from.username} 给你发了私信', '{extra.message}'],
-            ['reward', '{from.username} 打赏了你的文章 {extra.article_title}', '{extra.money} {extra.comment}'],
-            ['follow', '{from.username} 关注了你', null],
+            ['reply', '{from.username} reply', '{extra.comment}'],
+            ['suggest', '{from.username} suggest', '{extra.comment}'],
+            ['comment', '{from.username} comment {extra.article_title}', '{extra.comment}'],
+            ['favourite', '{from.username} favourite {extra.article_title}', null],
+            ['up_article', '{from.username} up article {extra.article_title}', null],
+            ['message', '{from.username} message', '{extra.message}'],
+            ['reward', '{from.username} reward {extra.article_title}', '{extra.money} {extra.comment}'],
+            ['follow', '{from.username} follow', null],
         ]);
     }
 

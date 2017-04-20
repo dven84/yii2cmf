@@ -15,16 +15,16 @@ class m160912_051818_create_album_table extends Migration
     {
         $this->createTable('{{%album}}', [
             'id' => $this->primaryKey(),
-            'name' => $this->string(128)->notNull()->comment('相册名'),
-            'description' => $this->string()->comment('相册描述'),
-            'owner_id' => $this->integer(11)->notNull()->comment('相册所有者'),
-            'user_id' => $this->integer(11)->notNull()->comment('创建者'),
+            'name' => $this->string(128)->notNull()->comment('name'),
+            'description' => $this->string()->comment('description'),
+            'owner_id' => $this->integer(11)->notNull()->comment('owner id'),
+            'user_id' => $this->integer(11)->notNull()->comment('user id'),
             'created_at' => $this->integer(10)->notNull(),
             'updated_at' => $this->integer(10)->notNull()
         ], $this->tableOptions);
         $this->createTable('{{%album_attachment}}', [
-            'album_id' => $this->integer(11)->notNull()->comment('相册ID'),
-            'attachment_id' => $this->integer(11)->notNull()->comment('附件ID'),
+            'album_id' => $this->integer(11)->notNull()->comment('album ID'),
+            'attachment_id' => $this->integer(11)->notNull()->comment('attachment ID'),
         ], $this->tableOptions);
     }
 

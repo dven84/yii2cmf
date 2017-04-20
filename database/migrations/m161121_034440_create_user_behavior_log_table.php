@@ -15,9 +15,9 @@ class m161121_034440_create_user_behavior_log_table extends Migration
     {
         $this->createTable('{{%user_behavior_log}}', [
             'id' => $this->primaryKey(),
-            'behavior_name' => $this->string(30)->comment('用户行为名'),
+            'behavior_name' => $this->string(30)->comment('behavior name'),
             'user_id' => $this->integer(11),
-            'content' => $this->text()->comment('行为日志'),
+            'content' => $this->text()->comment('content'),
             'created_at' => $this->integer(10)->notNull(),
         ], $this->tableOptions);
     }

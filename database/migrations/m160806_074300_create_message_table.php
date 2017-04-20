@@ -17,12 +17,12 @@ class m160806_074300_create_message_table extends Migration
             'id' => $this->primaryKey(),
             'from_uid' => $this->integer(11)->notNull(),
             'to_uid' => $this->integer(11)->notNull(),
-            'message_id' => $this->integer(11)->notNull()->comment('消息ID'),
-            'read' => $this->smallInteger(1)->notNull()->defaultValue(0)->comment('是否阅读')
+            'message_id' => $this->integer(11)->notNull()->comment('message id'),
+            'read' => $this->smallInteger(1)->notNull()->defaultValue(0)->comment('read')
         ], $this->tableOptions);
         $this->createTable('{{%message_data}}', [
             'id' => $this->primaryKey(),
-            'content' => $this->text()->comment('消息内容'),
+            'content' => $this->text()->comment('content'),
             'group' => $this->string(128),
             'created_at' => $this->integer(10)->notNull()
         ], $this->tableOptions);

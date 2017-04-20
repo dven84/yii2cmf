@@ -23,13 +23,13 @@ class m160718_040058_create_article_module_table extends Migration
         ], $tableOptions);
         $this->createTable('{{%article_exhibition}}', [
             'id' => $this->integer(11)->unique(),
-            'start_at' => $this->dateTime()->comment('开始时间'),
-            'end_at' => $this->dateTime()->comment('结束时间'),
-            'city' => $this->string(50)->comment('举办城市'),
-            'address' => $this->string(255)->comment('举办地址')
+            'start_at' => $this->dateTime()->comment('start at'),
+            'end_at' => $this->dateTime()->comment('end at'),
+            'city' => $this->string(50)->comment('city'),
+            'address' => $this->string(255)->comment('address')
         ], $tableOptions);
         $moduleColumn = new \yii\db\ColumnSchemaBuilder('string');
-        $moduleColumn->comment('文档类型');
+        $moduleColumn->comment('document type');
         $moduleColumn->defaultValue('base');// 默认普通文章
         $this->addColumn('{{%article}}', 'module', $moduleColumn);
         $this->addColumn('{{%category}}', 'module', $moduleColumn);
@@ -42,19 +42,19 @@ class m160718_040058_create_article_module_table extends Migration
         ], $tableOptions);
         $this->insert('{{%article_module}}', [
             'name' => 'base',
-            'title' => '普通',
+            'title' => 'base',
         ]);
         $this->insert('{{%article_module}}', [
             'name' => 'exhibition',
-            'title' => '展会',
+            'title' => 'exhibition',
         ]);
         $this->insert('{{%article_module}}', [
             'name' => 'download',
-            'title' => '下载',
+            'title' => 'download',
         ]);
         $this->insert('{{%article_module}}', [
             'name' => 'photo',
-            'title' => '相册',
+            'title' => 'photo',
         ]);
     }
 

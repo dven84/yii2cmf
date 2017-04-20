@@ -17,8 +17,8 @@ class m160722_051000_create_friend_table extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
         $this->createTable('{{%friend}}', [
-            'owner_id' => $this->integer()->notNull()->comment('自己'),
-            'friend_id' => $this->integer()->notNull()->comment('朋友'),
+            'owner_id' => $this->integer()->notNull()->comment('owner id'),
+            'friend_id' => $this->integer()->notNull()->comment('friend id'),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);

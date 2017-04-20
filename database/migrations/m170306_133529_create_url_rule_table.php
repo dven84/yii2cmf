@@ -24,7 +24,7 @@ class m170306_133529_create_url_rule_table extends Migration
             'mode' => $this->boolean()->notNull()->defaultValue('0'),
             'encodeParams' => $this->boolean()->notNull()->defaultValue('1'),
             'status' => $this->smallInteger(1)->null()->defaultValue('1'),
-            'sort' => $this->smallInteger(1)->null()->defaultValue('1')->comment('排序'),
+            'sort' => $this->smallInteger(1)->null()->defaultValue('1')->comment('sort'),
         ], "CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB");
         $this->batchInsert('{{%url_rule}}', ['pattern', 'route', 'suffix'], [
             ['<id:\d+>', '/article/view', '.html'],

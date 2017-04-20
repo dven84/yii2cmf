@@ -36,28 +36,28 @@ class m160722_114202_create_area_table extends Migration
 
         $this->insert('{{%area}}', [
             'area_id' => '1',
-            'title' => '首页头部',
+            'title' => 'index-header',
             'slug' => 'index-header',
             'description' => 'default',
             'blocks' => ''
         ]);
         $this->insert('{{%area}}', [
             'area_id' => '2',
-            'title' => '首页侧边栏',
+            'title' => 'site-index-sidebar',
             'slug' => 'site-index-sidebar',
-            'description' => '首页侧边栏',
+            'description' => 'site-index-sidebar',
             'blocks' => ''
         ]);
         $this->insert('{{%area}}', [
             'area_id' => '3',
-            'title' => '文章列表侧边栏',
+            'title' => 'article-index-sidebar',
             'slug' => 'article-index-sidebar',
-            'description' => '文章列表侧边栏',
+            'description' => 'article-index-sidebar',
             'blocks' => ''
         ]);
         $this->insert('{{%area_block}}', [
             'block_id' => '7',
-            'title' => '公告',
+            'title' => 'announcement',
             'type' => 'text',
             'widget' => 'frontend\\widgets\\area\\TextWidget',
             'slug' => 'gong-gao',
@@ -68,12 +68,12 @@ class m160722_114202_create_area_table extends Migration
         ]);
         $this->insert('{{%area_block}}', [
             'block_id' => '9',
-            'title' => '区域测试',
+            'title' => 'regional testing',
             'type' => 'text',
             'widget' => 'frontend\\widgets\\area\\TextWidget',
             'slug' => 'qu-yu-ce-shi',
             'config' => '',
-            'template' => serialize('<p>这里是侧边栏的区域中的一个区块</p>'),
+            'template' => serialize('<p>Block in the are of the sidebar</p>'),
             'cache' => '0',
             'used' => '0'
         ]);

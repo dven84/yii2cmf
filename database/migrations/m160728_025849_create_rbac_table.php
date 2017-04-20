@@ -50,7 +50,7 @@ class m160728_025849_create_rbac_table extends Migration
             'updated_at' => Schema::TYPE_INTEGER . "(11) NULL",
             'PRIMARY KEY (name)',
         ], $this->tableOptions);
-        $this->batchInsert('{{%auth_item}}', ['name', 'type', 'description', 'rule_name', 'data', 'created_at', 'updated_at'], [['superAdmin',1,'超级管理员',NULL,NULL,1443080982,1443408507], ['/*',2,NULL,NULL,NULL,1458640575,1458640575], ['admin',2,'后台登录权限',NULL,NULL,1458640575,1458640575]]);
+        $this->batchInsert('{{%auth_item}}', ['name', 'type', 'description', 'rule_name', 'data', 'created_at', 'updated_at'], [['superAdmin',1,'superAdmin',NULL,NULL,1443080982,1443408507], ['/*',2,NULL,NULL,NULL,1458640575,1458640575], ['admin',2,'admin',NULL,NULL,1458640575,1458640575]]);
         $this->insert('{{%auth_assignment}}', ['item_name' => 'superAdmin', 'user_id' => '1', 'created_at' => 1443080982]);
         $this->batchInsert('{{%auth_item_child}}', ['parent', 'child'], [['superAdmin','/*'],['superAdmin','admin']]);
         // fk: auth_assignment
